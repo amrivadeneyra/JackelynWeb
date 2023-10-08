@@ -1,8 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import localeEs from "@angular/common/locales/es";
 import { AppComponent } from './app.component';
+import { ExtraOptions, PreloadAllModules, RouterModule } from '@angular/router';
+import { registerLocaleData } from '@angular/common';
+import { appRoutes } from './app.routing';
+
+registerLocaleData(localeEs, "es");
+
+const routerConfig: ExtraOptions = {
+  preloadingStrategy       : PreloadAllModules,
+  scrollPositionRestoration: 'enabled'
+};
 
 @NgModule({
   declarations: [
@@ -10,7 +19,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    RouterModule.forRoot(appRoutes, routerConfig),
   ],
   providers: [],
   bootstrap: [AppComponent]
