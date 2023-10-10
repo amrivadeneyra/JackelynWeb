@@ -48,11 +48,25 @@ module.exports = {
         'magenta-lighter': '#f568b5',
         'magenta-pale': '#ffa1ef',
       },
+      borderColor: {
+        'magenta-dark': '#6b0023',
+        'magenta-medium': '#a6024f',
+        'magenta-light': '#e5097f',
+        'magenta': '#FF00FF',
+        'magenta-lighter': '#f568b5',
+        'magenta-pale': '#ffa1ef',
+      },
       flex: {
         '0': '0 0 auto'
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addBase, theme }) {
+      addBase({
+        'html': { scrollBehavior: 'smooth' },
+      });
+    },
+  ],
 }
 
