@@ -1,36 +1,11 @@
 <div class="min-h-screen flex flex-col">
 
-    <div class="relative">
-        <div class="ml-64 w-48 h-[150px] absolute bg-white shadow-xl" style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">
-            <a href="#">
-                <img src="../../../../assets/image/logo/logo.png" alt="logo"
-                    class="w-full h-full object-fit object-center">
-            </a>
-        </div>
-    </div>
-
-    <div class="w-full h-10 bg-magenta-light flex justify-end mr-48 items-center pr-8 text-white">
-        <a href="" class="mr-4">mail@gmail.com</a>
-        <a href="">+51 999 999 999</a>
-    </div>
-
-    <div class="text-black">
-        <!-- Encabezado -->
-        <header class="flex justify-center items-center px-4 py-2">
-            <nav class="space-x-16 ml-48 py-8">
-                <a href="#index" class="text-black hover:text-magenta-light no-underline">Inicio</a>
-                <a href="#servicios" class="text-black hover:text-magenta-light no-underline">Servicios</a>
-                <a href="#" class="text-black hover:text-magenta-light no-underline">Productos</a>
-                <a href="#" class="text-black hover:text-magenta-light no-underline">Galería</a>
-                <!--  <a href="#" class="text-white hover:text-gray-300 no-underline">Reservas</a> -->
-                <a href="#" class="text-black hover:text-magenta-light no-underline">Contacto</a>
-            </nav>
-        </header>
-    </div>
+    <!-- Barra de navegación -->
+    <app-sidenav></app-sidenav>
 
     <!-- Contenido de página -->
-
     <div class="flex-1 bg-gray-100 text-gray-800">
+
         <!-- Sección de Inicio -->
         <section id="index"
             class="min-h-screen flex items-center justify-center bg-cover bg-center border-b-2 border-magenta-light">
@@ -63,130 +38,13 @@
 
         <div class="container mx-auto py-12">
             <!-- Sección de Servicios -->
-            <section id="servicios" class="mb-12">
-                <h2 class="text-3xl font-bold mb-6 text-center">Nuestros Servicios</h2>
-                <div class="flex flex-col lg:flex-row lg:space-x-8 m-16">
-                    <div class="flex w-full m-5">
-                        <div class="w-full md:flex-col lg:w-1/3 shadow-lg shadow-gray-600/25">
-                            <ul class="my-7">
-                                <li
-                                    class="font-bold text-lg flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                                    <a href="#">Corte de pelo</a>
-                                    <span class="">S/50</span>
-                                </li>
-                                <li
-                                    class="font-bold text-lg  flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                                    <a href="#">Tratamientos Faciales</a>
-                                    <span class="">S/50</span>
-                                </li>
-                                <li
-                                    class="font-bold text-lg  flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                                    <a href="#">Manicura y Pedicura</a>
-                                    <span class="">S/50</span>
-                                </li>
-                                <li
-                                    class="font-bold text-lg flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                                    <a href="#">Tratamientos Capilares</a>
-                                    <span class="">S/50</span>
-                                </li>
-                                <li
-                                    class="font-bold text-lg flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                                    <a href="#">Terapias Alternativas</a>
-                                    <span class="">S/50</span>
-                                </li>
-                                <li
-                                    class="font-bold text-lg flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                                    <a href="#">Maquillaje</a>
-                                    <span class="">S/50</span>
-                                </li>
-                                <li
-                                    class="font-bold text-lg flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                                    <a href="#">Peinados Especiales</a>
-                                    <span class="">S/50</span>
-                                </li>
-                            </ul>
-                            <div class="flex justify-center mb-4">
-                                <button
-                                    class="bg-magenta-light hover:bg-magenta-lighter justify-center text-white px-6 py-3 mb-4 transition duration-300 ease-in-out">Reservar
-                                    una
-                                    cita</button>
-                            </div>
-
-                        </div>
-                        <div class="w-2/3 md:flex-col ml-10">
-                            <div class="flex justify-center mb-10">
-                                <img src="../../../../assets/image/other/corte-cabello.jpg" alt="corte">
-                            </div>
-                            <div class="mb-4">
-                                <span class="text-3xl">Corte de pelo</span>
-                            </div>
-                            <div class="mb-8">
-                                <span class="text-xl text-magenta-light">S/50.00</span>
-                            </div>
-                            <div class="">
-                                <p class="leading-loose">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="carousel" class="mb-12 relative bg-[##E9E9E9]">
-                <div class="flex justify-center gap-9 h-64">
-                    <div
-                        class="w-48 h-48 rounded-full border-[5px] border-gray-300 flex justify-center items-center relative overflow-hidden">
-                        <img class="absolute top-0 left-0 w-full h-full object-cover"
-                            src="../../../../assets/image/other/corte-cabello.jpg" alt="corte">
-                        <div class="absolute bottom-0 w-full bg-magenta-light bg-opacity-50 rounded-b-full">
-                            <h4 class="pb-10 pt-2 text-center">
-                                <a class="text-white text-md uppercase">Corte de pelo</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <div
-                        class="w-48 h-48 rounded-full border-[5px] border-gray-300 flex justify-center items-center relative overflow-hidden">
-                        <img class="absolute top-0 left-0 w-full h-full object-cover"
-                            src="../../../../assets/image/other/corte-cabello.jpg" alt="corte">
-                        <div class="absolute bottom-0 w-full bg-magenta-light bg-opacity-50 rounded-b-full">
-                            <h4 class="pb-10 pt-2 text-center">
-                                <a class="text-white text-md uppercase">Tratamientos Faciales</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <div
-                        class="w-48 h-48 rounded-full border-[5px] border-gray-300 flex justify-center items-center relative overflow-hidden">
-                        <img class="absolute top-0 left-0 w-full h-full object-cover"
-                            src="../../../../assets/image/other/corte-cabello.jpg" alt="corte">
-                        <div class="absolute bottom-0 w-full bg-magenta-light bg-opacity-50 rounded-b-full">
-                            <h4 class="pb-10 pt-2 text-center">
-                                <a class="text-white text-md uppercase">Manicura y Pedicura</a>
-                            </h4>
-                        </div>
-                    </div>
-                    <div
-                        class="w-48 h-48 rounded-full border-[5px] border-gray-300 flex justify-center items-center relative overflow-hidden">
-                        <img class="absolute top-0 left-0 w-full h-full object-cover"
-                            src="../../../../assets/image/other/corte-cabello.jpg" alt="corte">
-                        <img src="" alt="">
-                        <div class="absolute bottom-0 w-full bg-magenta-light bg-opacity-50 rounded-b-full">
-                            <h4 class="pb-10 pt-2 text-center">
-                                <a class="text-white text-md uppercase">Tratamientos Capilares</a>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            <app-services></app-services>
+            
+            <!-- Sección de Carrusel -->
+            <app-carousel></app-carousel>
 
             <!-- Sección de Productos -->
-            <section class="mb-12">
-                <h2 class="text-3xl font-bold mb-6">Productos Destacados</h2>
-                <!-- mostrar productos destacados con imágenes y descripciones -->
-            </section>
+            <app-products></app-products>
 
             <!-- Sección de Galería -->
             <section class="mb-12">
@@ -195,10 +53,8 @@
             </section>
 
             <!-- Sección de Reservas -->
-            <section class="mb-12">
-                <h2 class="text-3xl font-bold mb-6">Reserva tu Cita</h2>
-                <!-- incluir un formulario de reserva en línea -->
-            </section>
+            <app-appointment-scheduler></app-appointment-scheduler>
+            
         </div>
     </div>
 
