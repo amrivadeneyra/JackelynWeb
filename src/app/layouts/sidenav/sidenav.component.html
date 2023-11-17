@@ -15,12 +15,22 @@
     <!-- Encabezado -->
     <header class="flex justify-center items-center px-4 py-2">
         <nav class="space-x-16 ml-48 py-8">
-            <a href="#index" class="text-black hover:text-magenta-light no-underline">Inicio</a>
-            <a href="#servicios" class="text-black hover:text-magenta-light no-underline">Servicios</a>
-            <a href="#" class="text-black hover:text-magenta-light no-underline">Productos</a>
-            <a href="#" class="text-black hover:text-magenta-light no-underline">Galería</a>
+            <button 
+                (click)="goIndexSection()" 
+                class="text-black hover:text-magenta-light no-underline">Inicio</button>
+            <button 
+                (click)="goServicesSection()"
+                class="text-black hover:text-magenta-light no-underline">Servicios</button>
+            <button 
+                (click)="goProductsSection()"
+                class="text-black hover:text-magenta-light no-underline">Productos</button>
+            <button 
+               
+                class="text-black hover:text-magenta-light no-underline">Galería</button>
             <!--  <a href="#" class="text-white hover:text-gray-300 no-underline">Reservas</a> -->
-            <a href="#" class="text-black hover:text-magenta-light no-underline">Contacto</a>
+            <button 
+                
+                class="text-black hover:text-magenta-light no-underline">Contacto</button>
         </nav>
     </header>
 </div>

@@ -10,7 +10,7 @@ import { CarouselComponent } from "./carousel.component";
         //RouterModule.forChild(servicesRoutes),
     ],
     exports:[
-        CarouselModule
+        CarouselComponent
     ]
 })
 export class CarouselModule { }

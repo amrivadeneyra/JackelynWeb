@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import localeEs from "@angular/common/locales/es";
 import { AppComponent } from './app.component';
 import { ExtraOptions, PreloadAllModules, RouterModule } from '@angular/router';
-import { CommonModule, registerLocaleData } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import { appRoutes } from './app.routing';
 
 registerLocaleData(localeEs, "es");

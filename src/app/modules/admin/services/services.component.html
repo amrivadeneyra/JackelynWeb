@@ -1,3 +1,6 @@
+
+<app-sidenav></app-sidenav>
+
 <section id="servicios" class="mb-12">
     <h2 class="text-4xl font-bold mb-6 text-center">Nuestros Servicios</h2>
     <div class="flex flex-col lg:flex-row lg:space-x-8 m-16">
@@ -25,13 +28,13 @@
                     <img *ngIf="selectedService" [src]="selectedService.image" alt="Servicio">
                 </div>
                 <div class="mb-4">
-                    <span class="text-4xl">{{ selectedService?.name }}</span>
+                    <span class="text-4xl">{{ selectedService.name }}</span>
                 </div>
                 <div class="mb-8">
-                    <span class="text-2xl text-magenta-light">S/{{ selectedService?.price }}</span>
+                    <span class="text-2xl text-magenta-light">S/{{ selectedService.price }}</span>
                 </div>
                 <div class="">
-                    <p class="leading-loose text-2xl">{{ selectedService?.description }}</p>
+                    <p class="leading-loose text-2xl">{{ selectedService.description }}</p>
                 </div>
             </div>
         </div>

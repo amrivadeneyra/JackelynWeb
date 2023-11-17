@@ -12,7 +12,7 @@ import { servicesValue } from 'src/app/values/service';
 export class ServicesComponent implements OnInit {
 
   services: Service[] = [];
-  selectedService: Service | null = null;
+  selectedService: Service = new Service();
 
   /**
    * OnInit
