@@ -10,7 +10,7 @@ import { servicesRoutes } from "./services.routing";
     imports: [
         RouterModule.forChild(servicesRoutes),
     ],
-    exports:[
+    exports: [
         ServicesComponent
     ]
 })

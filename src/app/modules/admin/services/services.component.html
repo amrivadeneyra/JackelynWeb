@@ -1,44 +1,16 @@
 <section id="servicios" class="mb-12">
-    <h2 class="text-3xl font-bold mb-6 text-center">Nuestros Servicios</h2>
+    <h2 class="text-4xl font-bold mb-6 text-center">Nuestros Servicios</h2>
     <div class="flex flex-col lg:flex-row lg:space-x-8 m-16">
         <div class="flex w-full m-5">
             <div class="w-full md:flex-col lg:w-1/3 shadow-lg shadow-gray-600/25">
                 <ul class="my-7">
-                    <li
-                        class="font-bold text-lg flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                        <a href="#">Corte de pelo</a>
-                        <span class="">S/50</span>
-                    </li>
-                    <li
-                        class="font-bold text-lg  flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                        <a href="#">Tratamientos Faciales</a>
-                        <span class="">S/50</span>
-                    </li>
-                    <li
-                        class="font-bold text-lg  flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                        <a href="#">Manicura y Pedicura</a>
-                        <span class="">S/50</span>
-                    </li>
-                    <li
-                        class="font-bold text-lg flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                        <a href="#">Tratamientos Capilares</a>
-                        <span class="">S/50</span>
-                    </li>
-                    <li
-                        class="font-bold text-lg flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                        <a href="#">Terapias Alternativas</a>
-                        <span class="">S/50</span>
-                    </li>
-                    <li
-                        class="font-bold text-lg flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                        <a href="#">Maquillaje</a>
-                        <span class="">S/50</span>
-                    </li>
-                    <li
-                        class="font-bold text-lg flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                        <a href="#">Peinados Especiales</a>
-                        <span class="">S/50</span>
-                    </li>
+                    <ng-container *ngFor="let service of services">
+                        <li (click)="selectService(service)"
+                            class="font-bold text-2xl flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
+                            <a class="cursor-pointer">{{ service.name }}</a>
+                            <span class="">S/{{ service.price }}</span>
+                        </li>
+                    </ng-container>
                 </ul>
                 <div class="flex justify-center mb-4">
                     <button
@@ -50,20 +22,16 @@
             </div>
             <div class="w-2/3 md:flex-col ml-10">
                 <div class="flex justify-center mb-10">
-                    <img src="../../../../assets/image/other/corte-cabello.jpg" alt="corte">
+                    <img *ngIf="selectedService" [src]="selectedService.image" alt="Servicio">
                 </div>
                 <div class="mb-4">
-                    <span class="text-3xl">Corte de pelo</span>
+                    <span class="text-4xl">{{ selectedService?.name }}</span>
                 </div>
                 <div class="mb-8">
-                    <span class="text-xl text-magenta-light">S/50.00</span>
+                    <span class="text-2xl text-magenta-light">S/{{ selectedService?.price }}</span>
                 </div>
                 <div class="">
-                    <p class="leading-loose">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo.
-                    </p>
+                    <p class="leading-loose text-2xl">{{ selectedService?.description }}</p>
                 </div>
             </div>
         </div>

@@ -7,6 +7,7 @@ import { CarouselComponent } from "../carousel/carousel.component";
 import { ProductsComponent } from "../products/products.component";
 import { homeRoutes } from "./home.routing";
 import { AppointmentSchedulerComponent } from "../appointment-scheduler/appointment-scheduler.component";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { AppointmentSchedulerComponent } from "../appointment-scheduler/appointm
         AppointmentSchedulerComponent,
     ],
     imports: [
+        CommonModule,
         RouterModule.forChild(homeRoutes),
     ],
 })
