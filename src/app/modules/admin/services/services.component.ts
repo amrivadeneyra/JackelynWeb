@@ -14,6 +14,8 @@ export class ServicesComponent implements OnInit {
   services: Service[] = [];
   selectedService: Service = new Service();
 
+  constructor() { }
+
   /**
    * OnInit
    */

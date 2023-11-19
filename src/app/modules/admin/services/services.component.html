@@ -11,7 +11,7 @@
                         <li (click)="selectService(service)"
                             class="font-bold text-2xl flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
                             <a class="cursor-pointer">{{ service.name }}</a>
-                            <span class="">S/{{ service.price }}</span>
+                            <span class="">{{ service.price | currency: 'PEN ':'symbol':'1.2-2' }}</span>
                         </li>
                     </ng-container>
                 </ul>
@@ -25,13 +25,17 @@
             </div>
             <div class="w-2/3 md:flex-col ml-10">
                 <div class="flex justify-center mb-10">
-                    <img *ngIf="selectedService" [src]="selectedService.image" alt="Servicio">
+                    <img 
+                        *ngIf="selectedService" 
+                        [src]="selectedService.image" 
+                        alt="Servicio"  
+                        class="w-3/4  max-h-128">
                 </div>
                 <div class="mb-4">
                     <span class="text-4xl">{{ selectedService.name }}</span>
                 </div>
                 <div class="mb-8">
-                    <span class="text-2xl text-magenta-light">S/{{ selectedService.price }}</span>
+                    <span class="text-2xl text-magenta-light">{{ selectedService.price | currency: 'PEN ':'symbol':'1.2-2' }}</span>
                 </div>
                 <div class="">
                     <p class="leading-loose text-2xl">{{ selectedService.description }}</p>
