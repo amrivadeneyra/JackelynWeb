@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Service } from 'src/app/models/service';
+import { servicesValue } from 'src/app/values/service';
 
 @Component({
   selector: 'app-appointment-scheduler',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./appointment-scheduler.component.scss']
 })
 export class AppointmentSchedulerComponent {
+
+  services: Service[] = [];
+
+  ngOnInit(): void {
+    this.services = servicesValue;
+  }
 
 }

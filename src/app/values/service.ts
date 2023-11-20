@@ -1,5 +1,15 @@
 import { Service } from "../models/service";
 
+enum Category {
+    Haircut = 1,
+    Facial = 2,
+    Manicure = 3,
+    HairTreatment = 4,
+    Wellness = 5,
+    Makeup = 6,
+    Hairstyle = 7,
+}
+
 export const servicesValue: Service[] = [
     {
         _id: '1',
@@ -7,7 +17,7 @@ export const servicesValue: Service[] = [
         description: 'Un corte moderno y elegante para un aspecto estilizado. Confía en nuestro servicio profesional para transformar tu estilo con maestría y precisión, brindándote un look único.',
         price: 50,
         duration: 45,
-        category: 'Corte',
+        category: Category.Haircut,
         availability: true,
         image: '../../../../assets/image/services/corte-cabello.jpg',
         reviews: ['Excelente servicio', 'Muy recomendado'],
@@ -23,7 +33,7 @@ export const servicesValue: Service[] = [
         description: 'Experimenta la renovación con nuestros tratamientos faciales rejuvenecedores. Disfruta de una experiencia facial increíble que realza tu belleza natural y te sumerge en un estado de relajación total.',
         price: 60,
         duration: 60,
-        category: 'Facial',
+        category: Category.Facial,
         availability: true,
         image: '../../../../assets/image/services/tratamiento-facial.jpeg',
         reviews: ['Increíble experiencia facial'],
@@ -39,7 +49,7 @@ export const servicesValue: Service[] = [
         description: 'Descubre el arte de la elegancia con nuestra manicura y pedicura profesional. Cuidamos tus uñas con maestría, ofreciendo un estilo impecable y pulido que realza tu imagen personal.',
         price: 40,
         duration: 60,
-        category: 'Manicura',
+        category: Category.Manicure,
         availability: true,
         image: '../../../../assets/image/services/uñas.jfif',
         reviews: ['Uñas perfectas'],
@@ -55,7 +65,7 @@ export const servicesValue: Service[] = [
         description: 'Transforma la salud de tu cabello con nuestros tratamientos capilares especializados. Nuestros servicios están diseñados para mejorar la vitalidad y la apariencia de tu cabello, proporcionándote una melena radiante.',
         price: 70,
         duration: 60,
-        category: 'Capilar',
+        category: Category.HairTreatment,
         availability: true,
         image: '../../../../assets/image/services/tratamiento-cabello.jfif',
         reviews: ['Mejoró la salud de mi cabello'],
@@ -71,7 +81,7 @@ export const servicesValue: Service[] = [
         description: 'Sumérgete en un mundo de bienestar con nuestras terapias alternativas. Diseñadas para revitalizar cuerpo y mente, nuestras opciones de tratamiento promueven la relajación y el equilibrio general.',
         price: 80,
         duration: 60,
-        category: 'Bienestar',
+        category: Category.Wellness,
         availability: true,
         image: '../../../../assets/image/services/corte-cabello.jpg',
         reviews: ['Relajante y revitalizante'],
@@ -87,7 +97,7 @@ export const servicesValue: Service[] = [
         description: 'Resalta tu belleza con nuestro maquillaje profesional. Ya sea para eventos especiales o simplemente para realzar tu rutina diaria, confía en nosotros para lograr un maquillaje impecable y duradero.',
         price: 60,
         duration: 60,
-        category: 'Maquillaje',
+        category: Category.Makeup,
         availability: true,
         image: '../../../../assets/image/services/maquillaje.jpg',
         reviews: ['Maquillaje impecable'],
@@ -103,7 +113,7 @@ export const servicesValue: Service[] = [
         description: 'Deja una impresión duradera con nuestros peinados especiales para ocasiones únicas. Desde elegantes recogidos hasta estilos modernos, nuestro servicio de peinado garantiza que te veas radiante en cada evento.',
         price: 65,
         duration: 60,
-        category: 'Peinado',
+        category: Category.Hairstyle,
         availability: true,
         image: '../../../../assets/image/services/peinado.jpg',
         reviews: ['Peinado elegante'],

@@ -3,7 +3,6 @@ import { HomeComponent } from "./home.component";
 import { RouterModule } from "@angular/router";
 import { homeRoutes } from "./home.routing";
 import { SidenavModule } from "src/app/layouts/sidenav/sidenav.module";
-import { AppointmentSchedulerModule } from "../appointment-scheduler/appointment-scheduler.module";
 import { CarouselModule } from "../carousel/carousel.module";
 
 @NgModule({
@@ -15,7 +14,6 @@ import { CarouselModule } from "../carousel/carousel.module";
         RouterModule.forChild(homeRoutes),
         SidenavModule,
 
-        AppointmentSchedulerModule,
         CarouselModule,
     ],
 })

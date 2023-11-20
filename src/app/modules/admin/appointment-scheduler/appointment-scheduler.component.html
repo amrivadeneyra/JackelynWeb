@@ -1,4 +1,58 @@
-<section class="mb-12">
-    <h2 class="text-4xl font-bold mb-6">Reserva tu Cita</h2>
-    <!-- incluir un formulario de reserva en línea -->
+<app-sidenav></app-sidenav>
+
+<section class="">
+    <div class="bg-magenta-light h-50">
+        <h2 class="text-4xl font-bold text-white mb-6 text-center">Reserva tu Cita</h2>
+    </div>
+
+    <div class="m-8">
+
+
+        <span> Selecciona un servicio: </span>
+        <div *ngFor="let service of services">
+            <!-- Add radio buttons or checkboxes for service selection -->
+            <label>
+                <input type="radio" [(ngModel)]="selectedService" [value]="service">
+                {{ service.name }}
+            </label>
+        </div>
+
+        <div>
+            <span>
+                Día de la cita:
+            </span>
+            <input type="date" [(ngModel)]="appointmentDate" />
+            <!--aplciar un calendario de angular-->
+        </div>
+
+        <div>
+            <span> Nombre: </span>
+
+        </div>
+
+        <div>
+            <span> Correo: </span>
+
+        </div>
+
+        <div>
+            <span> Notas(opcional): </span>
+
+        </div>
+
+        <div>
+            <span> Número de celular: </span>
+
+        </div>
+
+        <div>
+            <button>
+                <span>Enviar cita</span>
+            </button>
+
+        </div>
+    </div>
+
+
+
 </section>

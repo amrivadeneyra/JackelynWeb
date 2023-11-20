@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Service } from 'src/app/models/service';
 import { servicesValue } from 'src/app/values/service';
 
@@ -14,7 +15,9 @@ export class ServicesComponent implements OnInit {
   services: Service[] = [];
   selectedService: Service = new Service();
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   /**
    * OnInit
@@ -33,5 +36,12 @@ export class ServicesComponent implements OnInit {
    */
   selectService(service: Service): void {
     this.selectedService = service;
+  }
+
+  /**
+   * 
+   */
+  redirectToReservation(): void {
+    this.router.navigate(['/appointment-scheduler']);
   }
 }

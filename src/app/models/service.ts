@@ -8,7 +8,7 @@ export class Service {
     description: string = '';
     price: number = 0;
     duration: number = 0;
-    category: string = '';
+    category: number = 0;
     availability: boolean = true; //disponibilidad
     image: string = '';
     reviews: string[] = [];

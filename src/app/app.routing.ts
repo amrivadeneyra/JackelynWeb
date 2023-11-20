@@ -21,6 +21,11 @@ export const appRoutes: Route[] = [
                 data: {},
                 loadChildren: () => import('../app/modules/admin/products/products.module').then(m => m.ProductsModule),
             },
+            {
+                path: 'appointment-scheduler',
+                data: {},
+                loadChildren: () => import('../app/modules/admin/appointment-scheduler/appointment-scheduler.module').then(m => m.AppointmentSchedulerModule),
+            },
             /* {
                 path: 'galery',
                 data: {},
