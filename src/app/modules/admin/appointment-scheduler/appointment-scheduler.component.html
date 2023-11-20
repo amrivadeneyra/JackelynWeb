@@ -12,7 +12,7 @@
         <div *ngFor="let service of services">
             <!-- Add radio buttons or checkboxes for service selection -->
             <label>
-                <input type="radio" [(ngModel)]="selectedService" [value]="service">
+                <!-- <input type="radio" [(ngModel)]="selectedService" [value]="service"> -->
                 {{ service.name }}
             </label>
         </div>
@@ -21,7 +21,7 @@
             <span>
                 Día de la cita:
             </span>
-            <input type="date" [(ngModel)]="appointmentDate" />
+           <!--  <input type="date" [(ngModel)]="appointmentDate" /> -->
             <!--aplciar un calendario de angular-->
         </div>
 
