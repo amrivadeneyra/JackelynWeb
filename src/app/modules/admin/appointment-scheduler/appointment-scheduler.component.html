@@ -1,56 +1,94 @@
 <app-sidenav></app-sidenav>
 
 <section class="">
-    <div class="bg-magenta-light h-50">
+    <div class="bg-magenta-lighter h-50">
         <h2 class="text-4xl font-bold text-white mb-6 text-center">Reserva tu Cita</h2>
     </div>
 
-    <div class="m-8">
+    <div class="my-26 mx-30">
+
+        <div class="w-full mt-20 flex">
+
+            <div class="w-1/2 p-20">
+                <form [formGroup]="appointmentSchedulerForm">
+
+                    <span> Selecciona un servicio: </span>
+                    <div class="flex flex-wrap">
+                        <div *ngFor="let service of services" class="flex items-center mr-4 mb-2">
+                            <label class="flex items-center">
+                                <mat-checkbox [formControlName]="'service_name'"></mat-checkbox>
+
+                                <span class="ml-2">
+                                    {{ service.name }}
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+
+                        <label class="">Fecha Agendada</label>
+
+                        <div class="flex">
+
+                            <mat-form-field appearance="fill" class="flex-grow">
+
+                                <input matInput [matDatepicker]="appointmentDate" placeholder="Seleccione una fecha"
+                                    [formControlName]="'appointment_date'">
+
+                                <mat-datepicker-toggle matSuffix [for]="appointmentDate"></mat-datepicker-toggle>
+
+                                <mat-datepicker #appointmentDate (click)="$event.stopPropagation();">
+
+                                    <mat-datepicker-actions>
+                                        <button mat-flat-button color="warn" (click)="resetDate()">Borrar</button>
+                                        <button mat-raised-button color="primary" matDatepickerApply>Guardar</button>
+                                    </mat-datepicker-actions>
+
+                                </mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
 
 
-        <span> Selecciona un servicio: </span>
-        <div *ngFor="let service of services">
-            <!-- Add radio buttons or checkboxes for service selection -->
-            <label>
-                <!-- <input type="radio" [(ngModel)]="selectedService" [value]="service"> -->
-                {{ service.name }}
-            </label>
+                    <div>
+                        <label> Nombre: </label>
+                        <input id="client_name" autocomplete="off" type="text" class="form-input" placeholder="" [formControlName]="'client_name'">
+
+                    </div>
+
+                    <div>
+                        <label> Correo: </label>
+                        <input id="email" autocomplete="off" type="text" class="form-input" placeholder="" [formControlName]="'email'">
+
+                    </div>
+
+                    <div>
+                        <label> Notas(opcional): </label>
+                        <textarea name="notes" (keydown.enter)="$event.stopPropagation()" id="notes"
+                        placeholder="Notas" [formControlName]="'notes'" class="block form-input min-h-30 h-40"></textarea>
+                    </div>
+
+                    <div>
+                        <label> Número de celular: </label>
+                        <input id="phone_number" autocomplete="off" type="text" class="form-input" placeholder="000-000-000" [formControlName]="'phone_number'" mask="000-000-000">
+                    </div>
+
+                    <div class="w-80">
+                        <button class="bg-magenta-light hover:bg-magenta-lighter text-white hover:text-gray-800 focus:outline-none my-4 transition duration-300 ease-in-out rounded-lg p-3">
+                            <label>Enviar cita</label>
+                        </button>
+
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="w-2/5 bg-magenta-pale">
+
+            </div>
         </div>
 
-        <div>
-            <span>
-                Día de la cita:
-            </span>
-           <!--  <input type="date" [(ngModel)]="appointmentDate" /> -->
-            <!--aplciar un calendario de angular-->
-        </div>
-
-        <div>
-            <span> Nombre: </span>
-
-        </div>
-
-        <div>
-            <span> Correo: </span>
-
-        </div>
-
-        <div>
-            <span> Notas(opcional): </span>
-
-        </div>
-
-        <div>
-            <span> Número de celular: </span>
-
-        </div>
-
-        <div>
-            <button>
-                <span>Enviar cita</span>
-            </button>
-
-        </div>
     </div>
 
 

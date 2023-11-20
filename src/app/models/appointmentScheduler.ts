@@ -2,7 +2,7 @@ export class AppointmentScheduler {
     constructor(init?: Partial<AppointmentScheduler>) {
         Object.assign(this, init);
     }
-    _id: string = ''; 
+    _id: string = '';
     client_name: string = ''; // Nombre del cliente
     phone_number: string = ''; // Número de teléfono del cliente
     email: string = ''; // Correo electrónico del cliente
@@ -22,6 +22,8 @@ export class AppointmentScheduler {
 
     duration: number = 0; // Duración estimada de la cita en minutos
     recurrence: string = ''; // Recurrencia de la cita
+
+    notes: string = '';
 
     notification_preferences: string[] = []; // Preferencias de notificación del cliente
 

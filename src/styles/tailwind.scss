@@ -1,6 +1,13 @@
 /* ----------------------------------------------------------------------------------------------------- */
 /*  @ Main Tailwind file for injecting utilities.
 /* ----------------------------------------------------------------------------------------------------- */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+@layer components {
+  .form-input {
+    @apply w-full py-3 px-2 bg-gray-100 focus:border-b-2 focus:border-magenta-light focus:rounded-b-none rounded-sm outline-none border-0 focus:ring-0 focus:ring-offset-0;
+  }
+}
