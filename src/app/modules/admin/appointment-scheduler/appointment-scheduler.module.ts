@@ -6,6 +6,9 @@ import { SidenavModule } from "src/app/layouts/sidenav/sidenav.module";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatInputModule } from '@angular/material/input';
+
 @NgModule({
     declarations: [
         AppointmentSchedulerComponent
