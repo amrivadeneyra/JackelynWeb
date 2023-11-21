@@ -27,6 +27,10 @@ export class SidenavComponent implements OnInit {
     this.router.navigate(['/products']);
   }
 
+  goReservationSection(): void {
+    this.router.navigate(['/appointment-scheduler']);
+  }
+
   /*   goGalerySection(): void {
       this.router.navigate(['/galery']);
     }

@@ -1,3 +1,5 @@
+import { Category } from "./category";
+
 export class Product {
     constructor(init?: Partial<Product>) {
         Object.assign(this, init);
