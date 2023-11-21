@@ -18,13 +18,22 @@ export class AppointmentSchedulerComponent {
     private fb: UntypedFormBuilder,
   ) { }
 
+  /**
+   * 
+   */
   ngOnInit(): void {
     this.services = servicesValue;
     this.initAppointmentSchedulerForm();
   }
 
+  /**
+   * 
+   */
   resetDate(): void { }
 
+  /**
+   * 
+   */
   initAppointmentSchedulerForm(): void {
     this.appointmentSchedulerForm = this.fb.group({
       _id: [''],
