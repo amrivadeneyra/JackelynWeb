@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { CarouselComponent } from "./carousel.component";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
     declarations: [
@@ -8,8 +9,9 @@ import { CarouselComponent } from "./carousel.component";
     ],
     imports: [
         //RouterModule.forChild(servicesRoutes),
+        CommonModule,
     ],
-    exports:[
+    exports: [
         CarouselComponent
     ]
 })

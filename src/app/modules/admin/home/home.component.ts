@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Service } from 'src/app/models/service';
+import { servicesValue } from 'src/app/values/service';
 
 @Component({
   selector: 'app-home',
@@ -22,8 +25,19 @@ export class HomeComponent implements OnInit {
 
   currentSectionContent = this.sectionContent[this.currentBackgroundIndex];
 
+  services: Service[] = [];
+  selectedService: Service = new Service();
+
+  constructor(
+    private router: Router,
+  ) { }
+
   ngOnInit() {
     // Establecer la imagen de fondo inicial
+    this.services = servicesValue;
+    if (this.services.length > 0) {
+      this.selectedService = this.services[0];
+    }
     this.changeBackgroundImage();
   }
 
@@ -46,5 +60,27 @@ export class HomeComponent implements OnInit {
   onRightButtonClick() {
     this.currentBackgroundIndex = (this.currentBackgroundIndex + 1) % this.sectionBackgrounds.length;
     this.changeBackgroundImage();
+  }
+
+  /**
+ * 
+ */
+  redirectToServices(): void {
+    this.router.navigate(['/services']);
+  }
+
+  /**
+ * Sets selected service to dynamically display its details.
+ * @param service 
+ */
+  selectService(service: Service): void {
+    this.selectedService = service;
+  }
+
+  /**
+   * 
+   */
+  redirectToReservation(): void {
+    this.router.navigate(['/appointment-scheduler']);
   }
 }

@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Category } from 'src/app/models/category';
 import { Product } from 'src/app/models/product';
 import { NotificationService } from 'src/app/services/notification/notification.service';
+import { categoryValue } from 'src/app/values/category';
 import { productsValue } from 'src/app/values/product';
 
 @Component({
@@ -12,8 +14,11 @@ import { productsValue } from 'src/app/values/product';
 export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
+  categories: Category[] = [];
 
-  constructor( 
+  selectedCategory: number = 0;
+
+  constructor(
     private notificationService: NotificationService,
   ) { }
 
@@ -21,7 +26,8 @@ export class ProductsComponent implements OnInit {
   * OnInit
   */
   ngOnInit(): void {
-    this.products = productsValue;;
+    this.products = productsValue;
+    this.categories = categoryValue;
   }
 
   /**
@@ -59,6 +65,19 @@ export class ProductsComponent implements OnInit {
   decreaseQuantity(product: Product) {
     if (product.quantity && product.quantity > 1) {
       product.quantity -= 1;
+    }
+  }
+
+  groupedEvent(selectedCategoryId: number): void {
+    this.selectedCategory = selectedCategoryId;
+  }
+
+  filteredProducts(): Product[] {
+    if (!this.selectedCategory) {
+      return this.products;
+    } else {
+      // Filtrar productos por la categoría seleccionada
+      return this.products.filter(product => product.category === this.selectedCategory);
     }
   }
 
