@@ -23,7 +23,7 @@
                     <p class="text-3xl mb-6 text-black">{{ currentSectionContent.buttonText }}</p>
                     <button 
                         (click)="redirectToServices()"
-                        class="bg-magenta-light hover:bg-magenta-lighter text-white py-2 px-8 text-2xl transition duration-300 ease-in-out rounded-full">{{
+                        class="bg-magenta-light hover:bg-magenta-lighter text-white py-2 px-8 text-xl transition duration-300 ease-in-out rounded-full">{{
                         currentSectionContent.buttonLink }}</button>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                             <ul class="my-7">
                                 <ng-container *ngFor="let service of services">
                                     <li (click)="selectService(service)"
-                                        class="font-bold text-2xl flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
+                                        class="font-bold text-xl flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
                                         <a class="cursor-pointer">{{ service.name }}</a>
                                         <span class="">{{ service.price | currency: 'PEN ':'symbol':'1.2-2' }}</span>
                                     </li>
@@ -73,10 +73,10 @@
                                 <span class="text-4xl">{{ selectedService.name }}</span>
                             </div>
                             <div class="mb-8">
-                                <span class="text-2xl text-magenta-light">{{ selectedService.price | currency: 'PEN ':'symbol':'1.2-2' }}</span>
+                                <span class="text-xl text-magenta-light">{{ selectedService.price | currency: 'PEN ':'symbol':'1.2-2' }}</span>
                             </div>
                             <div class="">
-                                <p class="leading-loose text-2xl">{{ selectedService.description }}</p>
+                                <p class="leading-loose text-xl">{{ selectedService.description }}</p>
                             </div>
                         </div>
                     </div>

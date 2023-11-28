@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Service } from 'src/app/models/service';
 import { servicesValue } from 'src/app/values/service';
-import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 
 @Component({
   selector: 'app-appointment-scheduler',

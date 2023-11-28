@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-sidenav',
@@ -8,12 +12,17 @@ import { Router } from '@angular/router';
 })
 export class SidenavComponent implements OnInit {
 
-  currentRoute: string | null = "";
+  currentUser: User = new User();
 
   constructor(
-    private router: Router) { }
+    private router: Router,
+    private _dialog: MatDialog,
+    private _authService: AuthService,
+  ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.currentUser = this._authService.getLoggedInUser();
+  }
 
   goIndexSection(): void {
     this.router.navigate(['/home']);
@@ -31,13 +40,20 @@ export class SidenavComponent implements OnInit {
     this.router.navigate(['/appointment-scheduler']);
   }
 
-  /*   goGalerySection(): void {
-      this.router.navigate(['/galery']);
-    }
-  
-    goContactSection(): void {
-      this.router.navigate(['/contact']);
-    } */
+  openModal(): void {
+
+    const userLogged = this._authService.getLoggedInUser();
+
+    const modalType = userLogged ? 'sign-out' : 'sign-in';
+
+    this._dialog.open(ModalComponent, {
+      data: {
+        type: modalType,
+      },
+      width: '40%',
+    });
+
+  }
 
 
 }

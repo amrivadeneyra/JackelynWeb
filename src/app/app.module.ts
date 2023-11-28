@@ -7,6 +7,7 @@ import { registerLocaleData } from '@angular/common';
 import { appRoutes } from './app.routing';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ModalModule } from './shared/modal/modal.module';
 
 registerLocaleData(localeEs, "es");
 
@@ -17,12 +18,14 @@ const routerConfig: ExtraOptions = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, routerConfig),
+    ModalModule,
 
     ToastrModule.forRoot({
       preventDuplicates: true,
