@@ -1,0 +1,54 @@
+<div class=" px-6 py-4">
+    <form (keydown.enter)="$event.preventDefault()" (keydown.shift.enter)="$event.preventDefault()">
+
+        <div class="flex justify-center items-center my-5">
+            <div class=" flex-1">
+                <label class="font-semibold block mb-5">Servicio > <span>
+                        {{data.data.name}}</span> </label>
+                <button class="w-2/3 bg-magenta-dark text-white rounded-full block">Eliminar</button>
+            </div>
+            <div class="flex-1">
+                <label for="image" class="text-lg text-gray-500">Cambiar imagen</label>
+                <img [src]="data.data.image" alt="Servicio" class="w-50  rounded-xl mt-2">
+            </div>
+        </div>
+
+
+
+        <div class=" my-5">
+            <label for="name" class=" text-lg text-gray-500">Nombre del servicio </label>
+            <input id="name" autocomplete="off" type="text" class="form-input" placeholder="Nombre del servicio"
+                [value]="data.data.name" [value]="data.data.name" (input)="updateField('name', $event)">
+        </div>
+
+        <div class="flex gap-x-3">
+            <div class=" my-5 flex-1">
+                <label for="price" class=" text-lg text-gray-500">Precio</label>
+                <input id="price" autocomplete="off" type="text" class="form-input" placeholder="Precio"
+                    [value]="data.data.price" (input)="updateField('price', $event)">
+            </div>
+
+            <div class="my-5 flex-1">
+                <label for="duration" class="text-lg text-gray-500">Duración del servicio</label>
+                <input id="duration" autocomplete="off" type="text" class="form-input" placeholder="Ingrese duración"
+                    [value]="data.data.duration" (input)="updateField('duration', $event)">
+            </div>
+
+
+        </div>
+
+        <div class="my-5">
+            <label for="tags" class=" text-lg text-gray-500">Etiquetas</label>
+            <input id="tags" autocomplete="off" type="text" class="form-input" placeholder="Ingrese etiquetas"
+                [value]="data.data.tags" (input)="updateField('tags', $event)">
+        </div>
+
+        <div class="my-5">
+            <label for="description" class=" text-lg text-gray-500">Descripción</label>
+            <textarea id="description" autocomplete="off" type="text" class="form-input min-h-20"
+                placeholder="Ingrese la descripción" [value]="data.data.description"
+                (input)="updateField('description', $event)">
+            </textarea>
+        </div>
+    </form>
+</div>

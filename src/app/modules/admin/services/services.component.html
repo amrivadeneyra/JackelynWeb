@@ -9,8 +9,8 @@
                 <ul class="my-7">
                     <ng-container *ngFor="let service of services">
                         <li (click)="selectService(service)"
-                            class="font-bold text-xl flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out">
-                            <a class="cursor-pointer">{{ service.name }}</a>
+                            class="font-bold text-xl flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out cursor-pointer">
+                            <a class="">{{ service.name }}</a>
                             <span class="">{{ service.price | currency: 'PEN ':'symbol':'1.2-2' }}</span>
                         </li>
                     </ng-container>
@@ -42,6 +42,88 @@
                     <p class="leading-loose text-xl">{{ selectedService.description }}</p>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<section id="mas-servicios" class="mb-12">
+    <h2 class="text-4xl font-bold mb-6 text-center">Más Servicios</h2>
+
+    <section>
+        <div class="flex items-center justify-center w-5/12 mb-5 ml-50">
+            <label class="mr-4 text-xl">Categorías:</label>
+            <mat-select 
+                placeholder="Seleccione una categoría"
+                [(value)]="selectedCategory">
+                <mat-option value="" >Todos</mat-option>
+                <mat-option *ngFor="let category of categories" [value]="category.category_id">
+                    {{ category.name}}
+                </mat-option>
+            </mat-select>
+        </div>
+    </section>
+
+    
+
+    <div class="flex flex-col lg:flex-row lg:space-x-8 m-16">
+        <div class="flex w-full m-5 items-center justify-center ">
+            <div class="w-full md:flex-col lg:w-3/4 shadow-lg shadow-gray-600/25 ">
+                <ul class="my-7">
+                    <ng-container *ngFor="let service of filteredServices(); let i = index">
+                        <li 
+                            class="font-bold text-xl flex justify-between items-center p-7 hover:text-magenta-light transition duration-300 ease-in-out cursor-pointer"
+                            (click)="expand[i] = !expand[i]">
+                            <a class="flex-1">{{ service.name }}</a>
+                            <span class="flex-1">{{ service.price | currency: 'PEN ':'symbol':'1.2-2' }}</span>
+                            <mat-icon *ngIf="!expand[i]" fontIcon="expand_more"></mat-icon>
+                            <mat-icon *ngIf="expand[i]"  fontIcon="expand_less"></mat-icon>
+                        </li>
+                        <ng-container *ngIf="expand[i]">
+                            <li class="">
+                                <div class="flex items-center">
+                                    <p class="px-12 w-3/4"> {{service.description}} </p>
+                                    <div class="flex items-center mb-10">
+                                        <img [src]="service.image" alt="Servicio" class="w-50 pr-12 rounded-full">
+                                    </div>
+                                </div>
+                        
+                                <div class="flex pr-10  mb-10 justify-center text-center text-magenta-light">
+                                    <label class="flex-1">Duración: <span class="text-black">{{service.duration}} min.</span> </label>
+                                    <label class="flex-1">Servicio disponible: <span class="text-black">{{service.availability ? 'Sí' : 'No' }} </span> </label>
+                                    <label class="flex-1">Etiquetas: <span class="text-black">{{service.tags}}</span></label>
+                                </div>
+
+                                <div 
+                                    *ngIf="currentUser.rol === 'admin'"
+                                    class="flex pr-10  mb-10 justify-center text-center text-magenta-light">
+                                    <button 
+                                        (click)="openModal(service)"
+                                        class="bg-magenta-light hover:bg-magenta-lighter justify-start text-white px-6 py-1 mb-4 transition duration-300 ease-in-out rounded-full">Editar</button>
+                                </div>
+
+                                <div 
+                                    *ngIf="currentUser.rol === 'user'"
+                                    class="flex pr-10  mb-10 justify-center text-center text-magenta-light">
+                                    <button 
+                                        (click)="redirectToReservation()"
+                                        class="bg-magenta-light hover:bg-magenta-lighter justify-start text-white px-6 py-1 mb-4 transition duration-300 ease-in-out rounded-full">Reservar</button>
+                                </div>
+                        
+                            </li>
+                        </ng-container>
+                        
+                    </ng-container>
+                </ul>
+                <div class="flex justify-center mb-4">
+                    <button
+                        (click)="redirectToReservation()"
+                        class="bg-magenta-light hover:bg-magenta-lighter justify-center text-white px-6 py-3 mb-4 transition duration-300 ease-in-out rounded-full">Reservar
+                        una
+                        cita</button>
+                </div>
+
+            </div>
+            
         </div>
     </div>
 </section>

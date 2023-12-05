@@ -7,6 +7,8 @@
 
         <app-sign-out *ngSwitchCase="'sign-out'"
             (closeModal)="eventEmmisionReceiver($event)"></app-sign-out>
+
+        <app-service-form *ngSwitchCase="'service'" [data]="data"></app-service-form>
     </ng-container>
 
 

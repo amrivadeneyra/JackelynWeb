@@ -146,3 +146,62 @@ export const categoryValue: Category[] = [
         updated_at: new Date(),
     },
 ]
+
+export const categoryService: Category[] = [
+    {
+        _id: "1",
+        name: 'Corte de pelo',
+        description: '',
+        category_id: 1,
+        created_at: new Date(),
+        updated_at: new Date(),
+    },
+    {
+        _id: "2",
+        name: 'Facial',
+        description: '',
+        category_id: 2,
+        created_at: new Date(),
+        updated_at: new Date(),
+    },
+    {
+        _id: "3",
+        name: 'Manicure',
+        description: '',
+        category_id: 3,
+        created_at: new Date(),
+        updated_at: new Date(),
+    },
+    {
+        _id: "4",
+        name: 'Tratamiento capilar',
+        description: '',
+        category_id: 4,
+        created_at: new Date(),
+        updated_at: new Date(),
+    },
+    {
+        _id: "5",
+        name: 'Bienestar',
+        description: '',
+        category_id: 5,
+        created_at: new Date(),
+        updated_at: new Date(),
+    },
+    {
+        _id: "6",
+        name: 'Maquillaje',
+        description: '',
+        category_id: 6,
+        created_at: new Date(),
+        updated_at: new Date(),
+    },
+    {
+        _id: "7",
+        name: 'Peinados',
+        description: '',
+        category_id: 7,
+        created_at: new Date(),
+        updated_at: new Date(),
+    },
+]

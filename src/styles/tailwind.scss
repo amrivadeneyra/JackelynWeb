@@ -8,6 +8,6 @@
 
 @layer components {
   .form-input {
-    @apply w-full py-3 px-2 bg-gray-100 focus:border-b-2 focus:border-magenta-light focus:rounded-b-none rounded-sm outline-none border-0 focus:ring-0 focus:ring-offset-0;
+    @apply w-full my-2 py-3 px-2 bg-gray-100 focus:border-b-2 focus:border-magenta-light focus:rounded-b-none rounded-sm outline-none border-0 focus:ring-0 focus:ring-offset-0;
   }
 }
