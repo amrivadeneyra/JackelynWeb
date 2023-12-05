@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        MatIconModule,
     ],
     exports: [
         SidenavComponent

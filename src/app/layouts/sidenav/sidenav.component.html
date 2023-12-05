@@ -1,17 +1,45 @@
-
 <div class="w-full h-12 bg-magenta-light flex justify-end mr-48 items-center pr-8 text-white text-xl">
-    
-    <div 
-        *ngIf="currentUser"
-        class="flex justify-start items-center flex-grow px-10">
-        <span>{{ currentUser.rol === 'admin' ? 'Administradora ' + currentUser.name : 'Bienvenido ' + currentUser.name }}</span>
-   </div>
-    
-    <div class="flex justify-end items-center">
+
+
+    <div *ngIf="currentUser" class="flex flex-1 justify-start items-center flex-grow px-10">
+        <span>{{ currentUser.rol === 'admin' ? 'Administradora ' + currentUser.name : 'Bienvenido ' + currentUser.name
+            }}</span>
+    </div>
+
+    <div class="flex-1">
+
+        <div class="">
+            <input class="rounded-full outline-none text-black px-3 w-2/3" [(ngModel)]="searchTerm"
+                (input)="onSearchChange(searchTerm)">
+            <mat-icon *ngIf="searchTerm.length === 0" class="relative text-2xl text-black cursor-pointer right-9 top-2"
+                fontIcon='search'></mat-icon>
+            <mat-icon *ngIf="searchTerm.length > 0" class="relative text-2xl text-black cursor-pointer right-9 top-2"
+                fontIcon='close' (click)="clearSearch()"></mat-icon>
+
+
+        </div>
+        <div class="max-h-50 w-full overflow-y-auto bg-gray-100  absolute  top-12 left-0 border-b-2 border-magenta-light"
+            *ngIf="searchTerm.length > 0">
+            <ng-container *ngFor="let search of serviceAndProducts">
+                <div class="relative text-black py-2 hover:bg-white p-5 pl-20 py-3 cursor-pointer  hover:text-magenta-light transition duration-200 ease-in-out"
+                    (click)="goToSearch(search)">
+
+                    <button class="">{{search.name}} </button>
+
+                </div>
+
+            </ng-container>
+        </div>
+
+
+    </div>
+
+
+    <div class="flex justify-end items-center flex-1">
         <div class="hidden md:block">
             <a href="" class="mr-10">jackelyn-salon-spa&#64;gmail.com</a>
             <a href="">+51 987 458 245</a>
-        </div>  
+        </div>
     </div>
 
 </div>
@@ -20,26 +48,18 @@
     <!-- Encabezado -->
     <header class="flex justify-center items-center px-4 py-2">
         <nav class="space-x-16 ml-48 py-8">
-            <button 
-                (click)="goIndexSection()" 
-                class="text-black hover:text-magenta-light no-underline">Inicio</button>
-            <button 
-                (click)="goServicesSection()"
+            <button (click)="goIndexSection()" class="text-black hover:text-magenta-light no-underline">Inicio</button>
+            <button (click)="goServicesSection()"
                 class="text-black hover:text-magenta-light no-underline">Servicios</button>
-            <button 
-                (click)="goProductsSection()"
+            <button (click)="goProductsSection()"
                 class="text-black hover:text-magenta-light no-underline">Productos</button>
-            <button 
-                (click)="goReservationSection()"
+            <button (click)="goReservationSection()"
                 class="text-black hover:text-magenta-light no-underline">Reservas</button>
             <!-- <button 
                 
                 class="text-black hover:text-magenta-light no-underline">Contacto</button> -->
 
-            <button 
-                (click)="openModal()"
-                
-                class="text-black hover:text-magenta-light no-underline">
+            <button (click)="openModal()" class="text-black hover:text-magenta-light no-underline">
                 <mat-icon fontIcon="account_circle"></mat-icon>
             </button>
         </nav>
