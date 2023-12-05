@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NotificationService } from 'src/app/services/notification/notification.service';
 
@@ -16,6 +16,7 @@ export class ServiceFormComponent implements OnInit {
 
   constructor(
     private _notificationService: NotificationService,
+    private _changeDetector: ChangeDetectorRef,
   ) {
 
   }
@@ -33,6 +34,7 @@ export class ServiceFormComponent implements OnInit {
 
     this.updateTimeout = setTimeout(() => {
       this.updateProduct();
+      this._changeDetector.detectChanges();
     }, 1000);
 
   }

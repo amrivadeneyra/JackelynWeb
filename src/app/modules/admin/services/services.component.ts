@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/models/category';
 import { Service } from 'src/app/models/service';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { NotificationService } from 'src/app/services/notification/notification.service';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
 import { categoryService } from 'src/app/values/category';
 import { mooreServices, servicesValue } from 'src/app/values/service';
@@ -35,6 +36,7 @@ export class ServicesComponent implements OnInit {
     private _router: Router,
     private _dialog: MatDialog,
     private _authService: AuthService,
+    private _changeDetector: ChangeDetectorRef,
   ) { }
 
   /**
@@ -52,6 +54,7 @@ export class ServicesComponent implements OnInit {
     this.categories = categoryService;
 
     this.currentUser = this._authService.getLoggedInUser();
+
   }
 
 
@@ -85,9 +88,9 @@ export class ServicesComponent implements OnInit {
   }
 
 
-  openModal(service:Service): void {
+  openModal(service: Service): void {
     this.currentService = service;
-    
+
     this._dialog.open(ModalComponent, {
       data: {
         type: 'service',

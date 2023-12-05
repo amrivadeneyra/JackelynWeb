@@ -21,8 +21,7 @@
                     <h1 class="text-7xl font-bold mb-4 text-black text-left uppercase">{{ currentSectionContent.text }}
                     </h1>
                     <p class="text-3xl mb-6 text-black">{{ currentSectionContent.buttonText }}</p>
-                    <button 
-                        (click)="redirectToServices()"
+                    <button (click)="redirectToServices()"
                         class="bg-magenta-light hover:bg-magenta-lighter text-white py-2 px-8 text-xl transition duration-300 ease-in-out rounded-full">{{
                         currentSectionContent.buttonLink }}</button>
                 </div>
@@ -53,27 +52,24 @@
                                 </ng-container>
                             </ul>
                             <div class="flex justify-center mb-4">
-                                <button
-                                    (click)="redirectToReservation()"
+                                <button (click)="redirectToReservation()"
                                     class="bg-magenta-light hover:bg-magenta-lighter justify-center text-white px-6 py-3 mb-4 transition duration-300 ease-in-out rounded-full">Reservar
                                     una
                                     cita</button>
                             </div>
-            
+
                         </div>
                         <div class="w-2/3 md:flex-col ml-10">
                             <div class="flex justify-center mb-10">
-                                <img 
-                                    *ngIf="selectedService" 
-                                    [src]="selectedService.image" 
-                                    alt="Servicio"  
+                                <img *ngIf="selectedService" [src]="selectedService.image" alt="Servicio"
                                     class="w-3/4  max-h-128">
                             </div>
                             <div class="mb-4">
                                 <span class="text-4xl">{{ selectedService.name }}</span>
                             </div>
                             <div class="mb-8">
-                                <span class="text-xl text-magenta-light">{{ selectedService.price | currency: 'PEN ':'symbol':'1.2-2' }}</span>
+                                <span class="text-xl text-magenta-light">{{ selectedService.price | currency: 'PEN
+                                    ':'symbol':'1.2-2' }}</span>
                             </div>
                             <div class="">
                                 <p class="leading-loose text-xl">{{ selectedService.description }}</p>
@@ -82,7 +78,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <!-- Sección de Carrusel -->
             <app-carousel></app-carousel>
 
@@ -96,7 +92,27 @@
 
             <!-- Sección de Reservas -->
             <!-- <app-appointment-scheduler></app-appointment-scheduler> -->
-            
+            <div class="container mx-auto py-12">
+                <section id="resenia" class="mb-12">
+                    <h2 class="text-4xl font-bold mb-6 text-center">Reseñas</h2>
+                    <div class="flex gap-4">
+                        <ng-container *ngFor="let service of services">
+                            <div class="w-1/3 h-50 rounded-xl bg-gray-200 p-3">
+                                <div class="w-15 h-15 bg-white rounded-full">
+
+                                </div>
+                                <div>
+                                    
+                                </div>
+                                {{service.reviews}}
+                            </div>
+
+                        </ng-container>
+                    </div>
+                </section>
+            </div>
+
+
         </div>
     </div>
 

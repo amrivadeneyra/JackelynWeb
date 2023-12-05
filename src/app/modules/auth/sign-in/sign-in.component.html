@@ -22,11 +22,20 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit"
-            class="text-white inline-block w-full rounded bg-primary px-7 pb-2.5 pt-3 text-xl font-medium uppercase leading-normal bg-magenta-light"
-            (click)="signIn()">
-            Ingresar
-        </button>
+        <div class="divide-y">
+            <button type="submit"
+                class="text-white inline-block w-full rounded bg-primary px-7 pb-2.5 pt-3 text-xl font-medium uppercase leading-normal bg-magenta-light mb-5"
+                (click)="signIn()">
+                Ingresar
+            </button>
+
+            <button type="submit"
+                class="text-white inline-block w-full rounded bg-primary px-7 pb-2.5 pt-3 text-xl font-medium uppercase leading-normal bg-magenta-light"
+                (click)="signIn()">
+                Registrarse
+            </button>
+        </div>
+
 
     </form>
 </div>

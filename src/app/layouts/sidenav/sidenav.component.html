@@ -1,8 +1,9 @@
 <div class="w-full h-12 bg-magenta-light flex justify-end mr-48 items-center pr-8 text-white text-xl">
 
 
-    <div *ngIf="currentUser" class="flex flex-1 justify-start items-center flex-grow px-10">
-        <span>{{ currentUser.rol === 'admin' ? 'Administradora ' + currentUser.name : 'Bienvenido ' + currentUser.name
+    <div class="flex flex-1 justify-start items-center flex-grow px-10">
+        <span *ngIf="currentUser">{{ currentUser.rol === 'admin' ? 'Administradora ' + currentUser.name : 'Bienvenido '
+            + currentUser.name
             }}</span>
     </div>
 
@@ -37,8 +38,10 @@
 
     <div class="flex justify-end items-center flex-1">
         <div class="hidden md:block">
+            <mat-icon class="relative top-1.5 mr-3" fontIcon="email"></mat-icon>
             <a href="" class="mr-10">jackelyn-salon-spa&#64;gmail.com</a>
-            <a href="">+51 987 458 245</a>
+            <mat-icon class="relative top-1.5 mr-3" fontIcon="phone"></mat-icon>
+            <a href="">987 458 245</a>
         </div>
     </div>
 
