@@ -68,8 +68,7 @@
                                 <span class="text-4xl">{{ selectedService.name }}</span>
                             </div>
                             <div class="mb-8">
-                                <span class="text-xl text-magenta-light">{{ selectedService.price | currency: 'PEN
-                                    ':'symbol':'1.2-2' }}</span>
+                                <span class="text-xl text-magenta-light">{{ selectedService.price | currency: 'PEN ':'symbol':'1.2-2' }}</span>
                             </div>
                             <div class="">
                                 <p class="leading-loose text-xl">{{ selectedService.description }}</p>
@@ -82,33 +81,57 @@
             <!-- Sección de Carrusel -->
             <app-carousel></app-carousel>
 
-            <!-- Sección de Productos -->
-            <!-- <app-products></app-products> -->
-
-            <!-- Sección de Galería -->
-            <!-- <section class="mb-12">
-                <h2 class="text-4xl font-bold mb-6">Galería</h2> 
-            </section> -->
-
-            <!-- Sección de Reservas -->
-            <!-- <app-appointment-scheduler></app-appointment-scheduler> -->
+            <!-- Sección de Reseñas -->
             <div class="container mx-auto py-12">
                 <section id="resenia" class="mb-12">
                     <h2 class="text-4xl font-bold mb-6 text-center">Reseñas</h2>
-                    <div class="flex gap-4">
-                        <ng-container *ngFor="let service of services">
-                            <div class="w-1/3 h-50 rounded-xl bg-gray-200 p-3">
-                                <div class="w-15 h-15 bg-white rounded-full">
-
+                    <div class="flex items-center gap-4 overflow-hidden mx-12">
+                        <mat-icon class="min-w-10 min-h-20 text-8xl cursor-pointer" fontIcon="chevron_left"
+                            (click)="showPreviousReviews()"></mat-icon>
+                        <ng-container *ngFor="let review of reviews">
+            
+                            <div class="w-2/5 h-50 rounded-xl bg-magenta-light-pale p-3" *ngIf="isVisible(review)">
+                                <div class="grid grid-rows-3 grid-flow-col">
+                                    <div class="flex justify-center  row-span-3 w-16 h-16 bg-white rounded-full">
+                                        <div class="flex justify-center items-center">
+                                            {{
+                                            (getUserData(review.user)?.avatar === ''
+                                            ? (getUserData(review.user)?.name ?
+                                            getUserData(review.user)!.name.charAt(0).toUpperCase() : '') +
+                                            (getUserData(review.user)?.last_name ?
+                                            getUserData(review.user)!.last_name.charAt(0).toUpperCase() : '')
+                                            : '')
+                                            }}
+                                        </div>
+            
+                                    </div>
+                                    <div class="col-span-2">
+                                        {{getUserData(review.user)?.name }}
+                                        {{getUserData(review.user)?.last_name }}
+                                    </div>
+                                    <div class="col-span-2">
+                                        {{ getUserData(review.user)?.rol === 'user' ? 'Usuario' : '' }}
+                                    </div>
+                                    <div class="flex">
+                                        <mat-icon *ngFor="let star of [1, 2, 3, 4, 5]" class="text-magenta-lighter"
+                                            fontIcon="{{ review.qualification >= star ? 'star' : (review.qualification > star - 1 ? 'star_half' : 'star_border') }}">
+                                        </mat-icon>
+                                        <div class="text-md flex items-center pl-1">
+                                            {{review.qualification}}
+                                        </div>
+            
+                                    </div>
                                 </div>
-                                <div>
-                                    
+            
+                                <div class="pt-3">
+                                    {{review.review}}
                                 </div>
-                                {{service.reviews}}
                             </div>
-
                         </ng-container>
+                        <mat-icon class="min-w-10 min-h-20 text-8xl cursor-pointer" fontIcon="chevron_right"
+                            (click)="showNextReviews()"></mat-icon>
                     </div>
+                    
                 </section>
             </div>
 
@@ -132,3 +155,4 @@
         <p class="text-gray-400">&copy; 2023 Tu Salón-Spa. Todos los derechos reservados.</p>
     </footer>
 </div>
+

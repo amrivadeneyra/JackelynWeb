@@ -39,6 +39,7 @@ module.exports = {
         'magenta': '#FF00FF',
         'magenta-lighter': '#f568b5',
         'magenta-pale': '#ffa1ef',
+        'magenta-light-pale': '#fde1f9'
       },
       textColor: {
         'magenta-dark': '#6b0023',
@@ -47,6 +48,7 @@ module.exports = {
         'magenta': '#FF00FF',
         'magenta-lighter': '#f568b5',
         'magenta-pale': '#ffa1ef',
+        'magenta-light-pale': '#fde1f9'
       },
       borderColor: {
         'magenta-dark': '#6b0023',
@@ -55,6 +57,7 @@ module.exports = {
         'magenta': '#FF00FF',
         'magenta-lighter': '#f568b5',
         'magenta-pale': '#ffa1ef',
+        'magenta-light-pale': '#fde1f9'
       },
       flex: {
         '0': '0 0 auto'
