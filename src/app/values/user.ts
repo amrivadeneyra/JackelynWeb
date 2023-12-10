@@ -18,7 +18,7 @@ export const usersValue: User[] = [
     {
         _id: 'user2',
         name: 'Pancho',
-        last_name: 'Pèrez',
+        last_name: 'Pérez',
         years_old: 22,
         password: 'pancho',
         email: 'pancho@gmail.com',

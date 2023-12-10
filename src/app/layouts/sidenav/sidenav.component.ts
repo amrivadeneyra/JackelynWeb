@@ -6,7 +6,6 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { User } from 'src/app/models/user';
 import { servicesValue } from 'src/app/values/service';
 import { productsValue } from 'src/app/values/product';
-import { Service } from 'src/app/models/service';
 
 @Component({
   selector: 'app-sidenav',
@@ -28,46 +27,88 @@ export class SidenavComponent implements OnInit {
     private _authService: AuthService,
   ) { }
 
+  /**
+   * 
+   */
   ngOnInit(): void {
     this.currentUser = this._authService.getLoggedInUser();
 
   }
 
+  /**
+   * 
+   */
   goIndexSection(): void {
     this.router.navigate(['/home']);
   }
 
+  /**
+   * 
+   */
   goServicesSection(): void {
     this.router.navigate(['/services']);
   }
 
+  /**
+   * 
+   */
   goProductsSection(): void {
     this.router.navigate(['/products']);
   }
 
+  /**
+   * 
+   */
   goReservationSection(): void {
     this.router.navigate(['/appointment-scheduler']);
   }
 
-  openModal(): void {
-
+  /**
+   * 
+   */
+  openSignInModal(): void {
     const userLogged = this._authService.getLoggedInUser();
-
     const modalType = userLogged ? 'sign-out' : 'sign-in';
+    const sizeWidth = '45%';
 
+    this.openModal(modalType, sizeWidth);
+  }
+
+  /**
+   * 
+   */
+  openCartModal(): void {
+    const cartModalType = 'shopping-cart';
+    const sizeWidth = '60%';
+    this.openModal(cartModalType, sizeWidth);
+  }
+
+  /**
+   * 
+   * @param modalType 
+   */
+  openModal(modalType: string, sizeWidth?: string): void {
     this._dialog.open(ModalComponent, {
       data: {
         type: modalType,
       },
-      width: '40%',
+      width: sizeWidth,
     });
-
   }
 
+  /**
+   * 
+   * @param search 
+   */
   onSearchChange(search: string): any {
     this.serviceAndProducts = this.filterSearch(search)
   }
 
+  /**
+   * 
+   * @param searchTerm 
+   * @returns 
+   */
   filterSearch(searchTerm: string) {
     const filter = [...servicesValue, ...productsValue]
     searchTerm = searchTerm.toLowerCase();
@@ -75,10 +116,17 @@ export class SidenavComponent implements OnInit {
 
   }
 
+  /**
+   * 
+   */
   clearSearch(): void {
     this.searchTerm = '';
   }
 
+  /**
+   * 
+   * @param search 
+   */
   goToSearch(search: any): void {
     console.log("_id", search._id)
   }

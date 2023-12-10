@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category';
 import { Product } from 'src/app/models/product';
 import { NotificationService } from 'src/app/services/notification/notification.service';
+import { CartService } from 'src/app/services/cart/cart.service';
 import { categoryValue } from 'src/app/values/category';
 import { productsValue } from 'src/app/values/product';
 
@@ -20,6 +21,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private notificationService: NotificationService,
+    private _cartService: CartService,
   ) { }
 
   /**
@@ -35,15 +37,19 @@ export class ProductsComponent implements OnInit {
    * @param product 
    */
   addToCart(product: Product) {
-    // Recuperar productos existentes del localStorage
-    const existingProductsString = localStorage.getItem('cart');
-    const existingProducts: Product[] = existingProductsString ? JSON.parse(existingProductsString) : [];
 
-    // Agregar el nuevo producto al array
-    existingProducts.push(product);
+    const quantity = product.quantity === 0 ? 1 : product.quantity;
 
-    // Guardar el array actualizado en el localStorage
-    localStorage.setItem('cart', JSON.stringify(existingProducts));
+    const nameArray = product.name.split(' ').slice(0, 2);
+    const truncatedName = nameArray.join(' ');
+
+    const productUpdated: Product = {
+      ...product,
+      name: truncatedName,
+      quantity: quantity
+    };
+
+    this._cartService.addToCart(productUpdated);
 
     this.notificationService.showSuccess("Se añadió correctamente su producto al carrito de compras.")
 

@@ -9,6 +9,8 @@
             (closeModal)="eventEmmisionReceiver($event)"></app-sign-out>
 
         <app-service-form *ngSwitchCase="'service'" [data]="data"></app-service-form>
+
+        <app-shopping-cart *ngSwitchCase="'shopping-cart'" ></app-shopping-cart>
     </ng-container>
 
 
