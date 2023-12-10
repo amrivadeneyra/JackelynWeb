@@ -11,6 +11,7 @@ export class Product {
     category: number = 0;
     stock: number = 0;
     quantity: number = 0;
+    totalPrice: number = 0;
     imageUrl: string = '';
     barcode: string = ''; //código de barras
     onSale: boolean = false; //promoción

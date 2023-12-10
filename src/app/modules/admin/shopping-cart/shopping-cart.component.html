@@ -1,0 +1,85 @@
+<div class=" mt-8 mb-5 text-black ">
+
+    <div class="px-15 mb-3">
+        <label for="">Estas cerca de finalizar tu compra, {{currentUser.name}} {{currentUser.last_name}}. </label>
+    </div>
+
+    <div class="px-15 max-h-120 overflow-auto divide-y">
+        <div class="flex items-center gap-x-4 h-10 text-magenta-medium font-bold ">
+
+            <div class="max-w-12 flex flex-1">
+
+            </div>
+            <div class="flex flex-1">
+                Producto
+            </div>
+            <div class="mr-10">
+                Precio
+            </div>
+            <div class="flex items-center min-w-24">
+                Cantidad
+            </div>
+            <div class="min-w-20">
+                Total
+            </div>
+            <div class="w-8 h-8"></div> <!-- Espacio para el botón de eliminar -->
+        </div>
+        <div class="mb-10 divide-y" *ngIf="cartItems.length > 0; else cartTpl">
+            <ng-container *ngFor="let item of cartItems">
+                <div class="flex items-center gap-x-4 h-22 ">
+
+                    <div class="max-w-12 flex flex-1">
+                        <img class="max-h-12" [src]="item.imageUrl" [alt]="item.barcode">
+                    </div>
+
+                    <div class="flex-1">
+                        {{item.name}}
+                    </div>
+
+                    <div class="mr-5">
+                        {{item.price | currency: 'S/ ':'symbol':'1.2-2'}}
+                    </div>
+
+                    <div class="flex items-center gap-x-3">
+                        <button class="text-magenta-medium w-8 h-8 cursor-pointer rounded-full bg-magenta-light-pale"
+                            (click)="incrementQuantity(item)">
+                            <mat-icon class="font-bold" fontIcon="add"></mat-icon>
+                        </button>
+                        <div>
+                            {{item.quantity}}
+                        </div>
+                        <button class="text-magenta-medium w-8 h-8 cursor-pointer rounded-full bg-magenta-light-pale"
+                            (click)="decrementQuantity(item)">
+                            <mat-icon class="font-bold" fontIcon="remove"></mat-icon>
+                        </button>
+                    </div>
+
+                    <div class="min-w-24 px-3">
+                        {{item.totalPrice | currency: 'S/ ':'symbol':'1.2-2'}}
+                    </div>
+
+                    <div class="text-magenta-medium w-8 h-8 cursor-pointer rounded-full bg-magenta-light-pale"
+                        (click)="clearCart(item)">
+                        <mat-icon fontIcon="close"></mat-icon>
+                    </div>
+
+                </div>
+            </ng-container>
+
+        </div>
+        <ng-template #cartTpl>
+            <div class="text-center pt-4 px-15 my-5">
+                Actualmente no cuentas con productos...
+            </div>
+        </ng-template>
+
+    </div>
+
+    <div class="flex justify-end px-15 my-5" *ngIf="cartItems.length > 0">
+        <button
+            class="w-32 bg-magenta-light hover:bg-magenta-lighter text-white hover:text-black focus:outline-none my-1 transition duration-300 ease-in-out rounded-full p-3 md:p-2 md:text-base">
+            Finalizar Compra
+        </button>
+    </div>
+
+</div>
