@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { User } from 'src/app/models/user';
@@ -12,6 +12,8 @@ import { NotificationService } from 'src/app/services/notification/notification.
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
+  @Input() hidden: boolean = false;
+  @Output() closeModal: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   cartItems: Product[] = [];
   selectedProducts: Product[] = [];
@@ -70,8 +72,9 @@ export class ShoppingCartComponent implements OnInit {
   /**
    * 
    */
-  goProductsSection(): void {
-    this._router.navigate(['/products']);
+  goCartSection(): void {
+    this._router.navigate(['/cart']);
+    this.closeModal.emit(true);
   }
 
 }

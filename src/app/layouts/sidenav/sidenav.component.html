@@ -66,7 +66,7 @@
                 <mat-icon fontIcon="account_circle"></mat-icon>
             </button>
 
-            <button  (click)="openCartModal()" class="text-black hover:text-magenta-light no-underline">
+            <button *ngIf="currentUser.rol !== 'admin'" (click)="openCartModal()" class="text-black hover:text-magenta-light no-underline">
                 <mat-icon fontIcon="shopping_cart"></mat-icon>
             </button>
         </nav>
