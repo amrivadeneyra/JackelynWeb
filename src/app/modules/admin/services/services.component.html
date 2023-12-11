@@ -115,11 +115,9 @@
                     </ng-container>
                 </ul>
                 <div class="flex justify-center mb-4">
-                    <button
-                        (click)="redirectToReservation()"
-                        class="bg-magenta-light hover:bg-magenta-lighter justify-center text-white px-6 py-3 mb-4 transition duration-300 ease-in-out rounded-full">Reservar
-                        una
-                        cita</button>
+                    <button *ngIf="currentUser.rol === 'admin'" (click)="redirectToReservation()"
+                        class="bg-magenta-light hover:bg-magenta-lighter justify-center text-white px-6 py-3 mb-4 transition duration-300 ease-in-out rounded-full">Crear Servicio 
+                    </button>
                 </div>
 
             </div>

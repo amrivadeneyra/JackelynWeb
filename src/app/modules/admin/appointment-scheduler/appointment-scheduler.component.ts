@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Service } from 'src/app/models/service';
-import { servicesValue } from 'src/app/values/service';
+import { NotificationService } from 'src/app/services/notification/notification.service';
+import { mooreServices } from 'src/app/values/service';
 
 @Component({
   selector: 'app-appointment-scheduler',
@@ -16,13 +17,14 @@ export class AppointmentSchedulerComponent {
 
   constructor(
     private fb: UntypedFormBuilder,
+    private _notificationService: NotificationService,
   ) { }
 
   /**
    * 
    */
   ngOnInit(): void {
-    this.services = servicesValue;
+    this.services = mooreServices;
     this.initAppointmentSchedulerForm();
   }
 
@@ -66,6 +68,7 @@ export class AppointmentSchedulerComponent {
   }
 
   send(): void {
+    this._notificationService.showSuccess("Se envío un correo a Jackelyn con los datos de su reserva.");
   }
 
 }
